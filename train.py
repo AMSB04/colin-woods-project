@@ -10,11 +10,11 @@ import argparse
 from torch.cuda.amp import GradScaler, autocast
 
 from dataset import MRISliceDataset
-from generator import SwinUNetGenerator
-from discriminator import Discriminator
-from model_util import save_checkpoint, prepare_images_for_logging, init_weights_gan, get_device
+from networks.generator import SwinUNetGenerator
+from networks.discriminator import Discriminator
+from utils.model_util import save_checkpoint, prepare_images_for_logging, init_weights_gan, get_device
 import logging
-from logger import Logger
+from utils.logger import Logger
 
 def train_swin_unet_gan(
     root_dir: str,

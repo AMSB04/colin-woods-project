@@ -6,7 +6,7 @@ import torch
 from torch.utils.data import Dataset
 from torchvision import transforms
 import torchvision.transforms.functional as F
-from model_util import set_seed, get_device
+from utils.model_util import set_seed, get_device
 
 class MRISliceDataset(Dataset):
     """

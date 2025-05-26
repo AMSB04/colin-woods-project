@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from model_util import init_weights_gan, get_device
+from utils.model_util import init_weights_gan, get_device
 
 class Discriminator(nn.Module):
     """

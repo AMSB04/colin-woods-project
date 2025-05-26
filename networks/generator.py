@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import torch.utils.checkpoint as checkpoint
 from timm.layers import DropPath, to_2tuple, trunc_normal_
 import numpy as np
-from model_util import init_weights
+from utils.model_util import init_weights
 
 class Mlp(nn.Module):
     """
