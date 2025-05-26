@@ -5,6 +5,7 @@
 This repository contains a custom Swin Transformer V2-based U-Net generator designed for high-fidelity synthesis of 7T MRI from 3T MRI axial slices. The generator is integrated into a CycleGAN framework, aiming to improve the visualisation of epileptogenic features in lower-field MRI.
 
 ## Directory Structure
+```
 colin-woods-project/
 ├── configs/
 │   └── config.yaml
@@ -23,9 +24,11 @@ colin-woods-project/
 ├── README.md
 ├── requirements.txt
 └── train.py
+```
 
 ## Data
 Organise dataset in the following structure:
+```
 dataset_root/
 ├── 3T/
 │   ├── train/
@@ -35,6 +38,7 @@ dataset_root/
     ├── train/
     ├── val/
     └── test/
+```
 
 ## Preprocessing Assumptions
 Before feeding into the model:
