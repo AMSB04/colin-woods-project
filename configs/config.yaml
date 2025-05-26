@@ -1,0 +1,64 @@
+# Configuration for Proposed Model
+
+# Dataset configuration
+dataset:
+  root_dir: "path/to/your/dataset" # Path to dataset root directory (should contain 'train', 'val', etc.)
+  target_size: [256, 256]          # Target image size [height, width] after resizing/cropping
+  paired: True                     # Whether to use paired training data (True = aligned 3T-7T slices)
+  valid_exts: [".png", ".jpg", ".jpeg", ".bmp"]  # Valid image extensions (case-sensitive)
+
+# Model architecture
+model:
+  generator:
+    img_size: 256                  # Input image size (assumes square inputs)
+    in_chans: 1                    # Input channels (1 = grayscale for MRI)
+    out_chans: 1                   # Output channels
+    embed_dim: 64                 # Embedding dim for patch embedding
+    depths: [2, 2, 6, 2]           # Number of transformer blocks per stage
+    num_heads: [4, 8, 16, 32]      # Number of attention heads per stage
+    window_size: 8                 # Window size for local attention
+    mlp_ratio: 4.0                 # MLP expansion ratio
+    qkv_bias: True                 # Whether to use bias in QKV projections
+    ape: False                     # Use absolute positional embeddings
+    patch_norm: True               # Use normalization after patch embedding
+  
+  discriminator:
+    in_channels: 2                 # Input channels (real/fake + input concatenated = 1+1)
+    features: [64, 128, 256, 512]  # Feature channels for each layer
+
+# Training configuration
+training:
+  epochs: 200                      # Total training epochs
+  batch_size: 4                    # Batch size
+  lr: 2e-4                         # Learning rate
+  beta1: 0.5                       # Adam beta1 parameter
+  lambda_cycle: 10.0               # Cycle consistency loss weight
+  lambda_identity: 0.5             # Identity loss weight
+  lambda_paired: 1.0               # Paired L1 loss weight
+  save_interval: 10                # Save checkpoint every N epochs
+  use_checkpoint: False            # Use gradient checkpointing to save memory
+  use_amp: True                    # Use automatic mixed precision
+
+# Paths and directories
+paths:
+  checkpoint_dir: "checkpoints"    # Directory to save model checkpoints
+  log_dir: "logs"                  # Directory for TensorBoard logs
+  pretrained_gen: null             # Path to pretrained generator (optional)
+  pretrained_disc: null            # Path to pretrained discriminator (optional)
+
+# Hardware settings
+hardware:
+  device: "auto"                   # "auto", "cuda", "mps", or "cpu"
+  num_workers: 4                   # DataLoader workers
+  pin_memory: True                 # Pin memory for faster GPU transfer
+
+# Validation settings
+validation:
+  interval: 5                      # Validate every N epochs
+  metrics: ["mse", "psnr", "ssim"] # Metrics to compute during validation
+
+# Logging settings
+logging:
+  file_log_level: "INFO"           # Logging level for file
+  console_log_level: "INFO"        # Logging level for console
+  image_log_interval: 5            # Log sample images every N epochs
