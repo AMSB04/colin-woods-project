@@ -1,0 +1,83 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Logs and outputs
+logs/
+checkpoints/
+evaluation_results/
+*.log
+*.csv
+
+# Dataset files (exclude large data directories)
+/data/
+/path/to/your/dataset/
+*.nii.gz
+*.nii
+*.dcm
+*.h5
+*.hdf5
+
+# Model checkpoints and trained weights
+*.pth
+*.pt
+*.bin
+*.onnx
+
+# Python packaging and distribution
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Profiling and debugging
+*.prof
+*.pstats
+
+# PyTorch JIT
+*.torchscript
+
+# C extensions
+*.so
+
+# Temporary files
+*.tmp
+*.bak
+
+# Documentation
+docs/_build/
+
+# Test coverage
+.coverage
+htmlcov/
+
+# Local configuration files
+local_config.yaml
+*.local
+
+# Exclude large files
+*.zip
+*.tar.gz
+*.tgz

@@ -18,6 +18,7 @@ colin-woods-project/
 │   ├── logger.py
 │   ├── model_util.py
 ├── .gitattributes
+├── .gitignore
 ├── dataset.py
 ├── evaluate.py
 ├── LICENSE
